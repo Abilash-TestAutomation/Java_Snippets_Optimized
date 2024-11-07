@@ -1,6 +1,7 @@
 package listTechniques;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -8,37 +9,35 @@ import java.util.regex.Pattern;
 
 public class CountVowels {
 
-	public static void main(String[] args) {
+	// Method to count the number of vowels in a string
+    public static int countVowels(String str) {
+        int count = 0;
+        for (char c : str.toCharArray()) {
+        	/*
+        	 * indexof will check the character in the String, if present return 1 if not -1
+        	 */
+            if ("AEIOUaeiou".indexOf(c) != -1) {
+            }
+        }
+        return count;
+    }
 
-		String inputString = "Hello world!";
-		int getCount = countVowels(inputString);
-		System.out.println("No. of Vowles Present in the String:"+getCount);
+    // Main method to test the countVowels method
+    public static void main(String[] args) {
+        // Initialize the ArrayList with test strings using Arrays.asList
+        List<String> testStrings = new ArrayList<>(Arrays.asList(
+            "Hello World",
+            "Java Programming",
+            "OpenAI ChatGPT",
+            "Count the Vowels"
+        ));
 
-	}
-
-	private static int countVowels(String inputString) {
-
-		//Basecase
-		if(inputString==null)
-		{
-			return 0;
-		}
-
-		int count = 0;
-		String vowles = "aeiouAEIOU";
-		List<Character> getVowels = new ArrayList<>();
-		for (int i = 0; i < inputString.length(); i++) {
-			char ch = inputString.charAt(i);
-			if(vowles.indexOf(ch)!=-1) 
-			{
-				count++; 
-				getVowels.add(ch);
-			}
-
-		}
-		System.out.println("Vowels Found are: "+getVowels);
-		return count;
-	}
+        // Print the number of vowels in each string
+        for (String str : testStrings) {
+            int vowelCount = countVowels(str);//this method will receive the count once returned
+            System.out.println("The string \"" + str + "\" has " + vowelCount + " vowels.");//this will keep all data in memory and flush once at once	
+        }
+    }
 
 	/**
 	 * Following is the another approach using Regex

@@ -2,8 +2,7 @@ package listTechniques;
 
 public class ArrayListandLinkedList {
 
-	public ArrayListandLinkedList() {
-		// TODO Auto-generated constructor stub
+	public static void main(String[] args) {
+		
 	}
-
 }

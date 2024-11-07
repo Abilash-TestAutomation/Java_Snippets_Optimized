@@ -2,8 +2,10 @@ package listTechniques;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.Stack;
@@ -11,39 +13,61 @@ import java.util.Stack;
 import myleetcode.HardBasicCalculator;
 
 public class TrialClass {
-	
-	/*
-	 * (1+(4+5+2)-3)+(6+8)/(5*2)
-	 * 4+5+2 = 11
-	 * 11 + 1 =12
-	 * 12 - 3= 9
-	 * -----
-	 * 6 + 8 =14
-	 * 5*2 = 10
-	 * ----
-	 * 14/10 = 1.4
-	 * ----
-	 * 9 + 1.4 = 10.4
-	 */
-	public static int calculator(String s)
-	{
-		/*
-		 * Lets see how to handle each operator (, ), / , *, +, -
-		 */
-		// As we are expected to implement using stack, so delacre a stack.
-		Stack<Integer> stack = new Stack<>();
-		//Whenever need to add the values and store in a variable then declare a stack.
-		int startCalculation = 0;
-		//get the string length
-		int n = s.length();
-		
-
-		return 0;
-		
-	}
 
 	public static void main(String[] args) {
-		String expression = "(1+(4+5+2)-3)+(6+8)/(5*2)"; // Input expression
-		System.out.println(calculator(expression)); // Output the result
+
+		class Employee
+		{
+			String name;
+			String department;
+
+			Employee(String name, String department)
+			{
+				this.name=name;
+				this.department=department;
+			}
+			@Override
+			public String toString()
+			{
+				return name;
+
+			}
+		}
+		List<Employee> employees = new ArrayList<>();
+		{
+			employees.add(new Employee("Alice", "HR"));
+			employees.add(new Employee("Bob", "Engineering"));
+			employees.add(new Employee("Charlie", "HR"));
+			employees.add(new Employee("Diana", "Engineering"));
+			employees.add(new Employee("Eve", "Marketing"));
+			employees.add(new Employee("Frank", "HR"));
+		}
+
+		// A map to track employees by department
+		Map<String, List<Employee>> departmentMap = new HashMap<>();
+
+		for(Employee emp:employees)
+		{
+			departmentMap.putIfAbsent(emp.department, new ArrayList<>());
+			departmentMap.get(emp.department).add(emp);
+		}
+
+		for(Map.Entry<String, List<Employee>> entry :departmentMap.entrySet())
+		{
+			String departmentName = entry.getKey();
+			List<Employee> nameList = entry.getValue();
+
+			System.out.println("Department: " + departmentName);
+			boolean foundPair = false;
+			
+			for(int i=0;i<=nameList.size();i++)
+			{
+				
+			}
+		}
+
+
+
+
 	}
 }

@@ -17,21 +17,27 @@ public class CompareValuesOfPairsAndArrange {
     public static void main(String[] args) {
         // Define the Employee class
         class Employee {
+        	
+        	/*
+        	 * Declare variable inside a class called Employee
+        	 */
             String name;
             String department;
 
+            //Creating constructor
             Employee(String name, String department) {
                 this.name = name;
                 this.department = department;
             }
-
+            //Override a method toString from parent class called String.
             @Override
             public String toString() {
-                return name + " (" + department + ")";
+               // return name + " (" + department + ")";
+                return name;
             }
         }
 
-        // Initialize the list of employees
+        // Initialize the list of employees. Passing Constructor as Argument
         List<Employee> employees = new ArrayList<>();
         employees.add(new Employee("Alice", "HR"));
         employees.add(new Employee("Bob", "Engineering"));
@@ -45,8 +51,12 @@ public class CompareValuesOfPairsAndArrange {
 
         // Group employees by department
         for (Employee emp : employees) {
-            departmentMap.putIfAbsent(emp.department, new ArrayList<>());
-            departmentMap.get(emp.department).add(emp);
+            departmentMap.putIfAbsent(emp.department, new ArrayList<>());//Initialize a list with Department one time and value is empty
+            departmentMap.get(emp.department).add(emp);//Add employees to department list
+            /*
+             * Initially get(Object K) retrieves list with Department name with value as empty as created in prev step
+             * then using add method, it will add the value "name" to the list [Alice, Charlier] for HR
+             */
         }
 
         // Print pairs for each department
@@ -56,6 +66,11 @@ public class CompareValuesOfPairsAndArrange {
 
             System.out.println("Department: " + department);
             boolean foundPair = false;
+            
+            /*
+             * Concept is, consider this list, Abi, Sofy, Ajay, Aadvik are value belongs to Marutham the key
+             * Possible pair can be Abi, sofy. Abi, Ajay, Abi, Aadvik. Sofy, Ajay. Sofy, Aadvik, Ajay, Aadvik
+             */
 
             // Check for pairs in the same department
             for (int i = 0; i < empList.size(); i++) {
