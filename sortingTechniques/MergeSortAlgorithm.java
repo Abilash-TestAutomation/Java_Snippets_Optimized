@@ -27,6 +27,8 @@ public class MergeSortAlgorithm {
 			 * Iteration 1: Merge Step for merge(array, 0, 0, 1)/Left of Left
 			 * Iteration 2: Merge Step for merge(array, 2, 2, 3)/Right of Left
 			 * Iteration 3: Merge Step for merge(array, 0, 1, 3)/Finally Left
+			 * After the Left Recursion is done
+			 * Same way Right also shall be divided and conquered 
 			 */
 		}
 		
